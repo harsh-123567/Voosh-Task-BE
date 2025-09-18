@@ -32,6 +32,7 @@ RUN npm ci --only=production && npm cache clean --force
 
 # Copy built application from builder stage
 COPY --from=builder --chown=nextjs:nodejs /app/dist ./dist
+COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
 
 # Create logs directory
 RUN mkdir -p logs && chown nextjs:nodejs logs
