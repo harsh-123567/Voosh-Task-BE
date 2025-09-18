@@ -34,7 +34,7 @@ export function getDatabaseConfig(): DatabaseConfig {
   return {
     qdrant: {
       url: qdrantUrl,
-      apiKey: qdrantApiKey,
+      ...(qdrantApiKey !== undefined ? { apiKey: qdrantApiKey } : {}),
     },
     redis: {
       url: redisUrl,
